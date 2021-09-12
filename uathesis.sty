@@ -1,0 +1,472 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+% U. of A. THESIS DOCUMENT STYLE
+% Version 0.8  -- November 1987  for LaTeX version 2.09
+%         Author: Fahiem Bacchus with many macros taken from
+%                       Leslie Lamport REPORT document style.
+% Version 0.9  -- November 1992 for LaTeX version 2.09
+%         Updated by: Randal Peters
+%
+% Version 0.95 -- October 1995  for LaTeX2e and LaTeX version 2.09
+%             Rewritten by: Narendra Ravi
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+% U. of A. THESIS DOCUMENT STYLE -- Updated October 1995
+% Updater: Narendra Ravi
+%        : Works with both LaTeX2e and LaTeX 2.09 versions.
+%        : Has a Completely modified/new interface.
+%
+% Changes conform to the November 1994 FGSR manual.
+% - Modified file to work with LaTeX2e and LaTeX 2.09
+% - commented \supervisor, \external, and \chair macros (FGSR changed their
+%   minds -- what else is new?)
+% - "(Examiner)" removed from signature line.
+% - "(Signed)" removed from release page.
+% - minor typographical changes to prefatory pages (removing CAPITALIZATION,
+%   adding bold face in some cases where larger fonts used to be).
+% - Changes to the style to take care of the Department and the Field
+%   of specialization.
+% - Currently the spacing has to be managed manually. Code to automate
+%   this will be added later. Use the following command after \bodyoftext:
+%      \singlespacing      % single spacing; \baselineskip is 1em
+%      \onehalfspacing     % One and a half spacing; \baselineskip is 1.25em
+%      \doublespacing      % double spacing; \baselineskip is 1.75em
+%      \truedoublespacing  % true double spacing; \baselineskip is 2em
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+% How to Use This style file??
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Not yet available is a single space enviorment
+% \begin{singlespace}
+% ...
+% \end{singlespace}
+%   Warning --- this enviorment (due to some kludge "efficiency" consideration
+%   (in latex) resets the font size to Normal. Thesis is set double space
+%   except for footnotes and tables. Long Quotes could have been single spaced
+%   but care needs to be taken when quotes appear inside a paragraph. Henc,
+%   I never got around to adding this ... someone else with time on their
+%   hands and knowledge of Tex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% left/right margin parameters for thesis style report
+\oddsidemargin 0.5in
+\evensidemargin 0.5in
+\textwidth 6in
+
+% top/bottom margin parameters for thesis style report
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\textheight 9in
+
+%%%%%%% Changed by Narendra Ravi.
+%%%%%%%   Commented the \renewcommand. This is the default anyway.
+%%%%%%%   Added different macros so things work more consistently.
+%%%%%%%   Look at the documentation at the beginning of the file
+%%%%%%%   for more help.
+% Default is single spacing for thesis documents.
+% \renewcommand{\baselinestretch}{1.0}\small\normalsize
+
+%Other default settings
+\date{}
+
+%Some useful macros
+\def\PhD{Doctor of Philosophy}
+\def\MSc{Master of Science}
+
+\def\singlespace{
+	\begingroup
+	\def\baselinestretch{1}
+	\@normalsize
+}
+\let\endsinglespace=\endgroup
+
+%
+% DATE
+%
+\def\today{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+\def\@year{\number\year}
+
+\def\tableofcontents{\@restonecolfalse
+  \if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{%\pagestyle{empty}\thispagestyle{empty}
+        \contentsname
+        \@mkboth{\uppercase{\contentsname}}{\uppercase{\contentsname}}}%
+  \@starttoc{toc}\if@restonecol\twocolumn\fi}
+
+
+\def\listoftables{\@restonecolfalse
+  \if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{%\pagestyle{empty}\thispagestyle{empty}%
+    \listtablename\@mkboth{\uppercase{\listtablename}}
+   {\uppercase{\listtablename}}}%
+    \@starttoc{lot}\if@restonecol%
+  \twocolumn\fi}
+
+\def\listoffigures{\@restonecolfalse
+  \if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{%\pagestyle{empty}\thispagestyle{empty}%
+     \listfigurename\@mkboth{\uppercase{\listfigurename}}%
+     {\uppercase{\listfigurename}}}%
+      \@starttoc{lof}\if@restonecol%
+    \twocolumn\fi}
+
+\let\l@table\l@figure
+
+%		***********************
+%		*    PREFATORY PAGES  *
+%		***********************
+%  RELEASE FORM
+%
+%\def\@releasepage{%
+%	\thispagestyle{empty}
+%	\begin{center} {
+%		{\bf University of Alberta}\\*[0.4in]
+%		{\bf Library Release Form}\\
+%	}
+%	\end{center}
+%\vfill
+%
+%\noindent
+%{\bf Name of Author}: {\@author}
+%\vskip2ex\relax
+%
+%\noindent
+%{\bf Title of Thesis}: {\let\\=\null \@title}
+%\vskip2ex\relax
+%
+%\noindent
+%{\bf Degree}: {\@degree}
+%\vskip2ex\relax
+%
+%\noindent
+%{\bf Year this Degree Granted}: {\@year}
+%\vfill
+%
+%\noindent
+%Permission is hereby granted to the University of Alberta Library to
+%reproduce single copies of this thesis and to lend or sell such copies
+%for private, scholarly or scientific research purposes only.
+%\vskip2ex\relax
+%
+%\noindent
+%The author reserves all other publication and other rights in
+%association with the copyright in the thesis, and except as
+%hereinbefore provided, neither the thesis nor any substantial portion
+%thereof may be printed or otherwise reproduced in any material form
+%whatever without the author's prior written permission.
+%\vfill
+%
+%\hbox to \hsize{\hfill \hbox to 3in{\leaders\hbox to 1em{\hss.\hss}\hfill}}
+%\hbox to \hsize{\hfill\hbox to
+%3in{\begin{tabular}[t]{l}\@author\end{tabular}\hfill}}
+%\hbox to \hsize{\hfill\hbox to
+%3in{\begin{tabular}[t]{l}\@permaddress\end{tabular}\hfill}}
+%
+%\vfill
+%\noindent
+%{\bf Date}: \hbox to 1.5in{\leaders\hbox to 1em{\hss.\hss}\hfill}
+%\newpage}
+
+%
+%  Information macros \degree, \address, \convocation(spring/fall)
+%  frontpiece (usually a quote and optional), dedication(optional)
+%
+\newif\iffront \newif\ifdedi \newif\iffield
+\def\degree#1{\gdef\@degree{#1}}
+\def\permanentaddress#1{\gdef\@permaddress{#1}}
+
+\def\examiners#1{\gdef\@examiners{#1}}
+\def\convocationseason#1{\gdef\@convocationdate{#1}}
+\def\frontpiece#1{\fronttrue\gdef\@frontpiece{#1}}
+\def\dedication#1{\deditrue\gdef\@dedication{#1}}
+
+%%%%%%% Commented out by Narendra Ravi. Not required.
+%
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\external#1{\gdef\@external{#1}}
+\def\chair#1{\gdef\@chair{#1}}
+%
+%%%%%%% Added by Narendra Ravi.
+%
+\def\dept#1{\gdef\@dept{#1}}
+\def\field#1{\fieldtrue\gdef\@field{#1}}
+
+%
+%  Quote Page
+%
+\def\frontpage{
+	\thispagestyle{empty}
+\begin{center}
+	\@frontpiece
+\end{center}
+\vfill\newpage}
+
+%
+% Title Page without Specialization
+%
+%\def\titlepage{
+%\thispagestyle{empty}
+%\centerline{\bf University of Alberta}
+%\vfill
+%
+%\begin{center}
+%	{\sc \@title}
+%    \vskip.5in plus.1in minus.1in
+%	by
+%    \vskip.5in plus.1in minus.1in
+%	{\bf \@author}
+%\end{center}
+%\vfill
+%
+%\noindent
+%\centerline{A thesis submitted in partial fulfillment of the requirements for the degree of}
+%\vfill
+%\centerline{{\bf \@degree}}
+%\vfill
+%\centerline{Department of \@dept}\\
+%\centerline{University of Alberta}
+%\vfill
+%
+%\noindent
+%\begin{center}
+%	\copyright Jing Zhang,~\@year
+%\end{center}
+
+%\begin{center}
+%	Edmonton, Alberta\\
+%	\@convocationdate~\@year
+%\end{center}
+%\newpage}
+	
+%%%%%%% Added by Narendra Ravi. Handles specialization degrees
+%
+% Title Page with Specialization
+%
+\def\titlepageB{
+\thispagestyle{empty}
+%\centerline{\bf University of Alberta}
+\vspace{20mm}
+
+\begin{center}
+	{\bf \@title}%{\sc \@title}
+    \vskip.5in plus.1in minus.1in
+	by
+    \vskip.5in plus.1in minus.1in
+	{\@author}%{\bf \@author}
+\end{center}
+\vfill
+
+\noindent
+\centerline{A thesis submitted in partial fulfillment of the requirements for the degree of}
+
+\vspace{10mm}
+\centerline{\@degree}
+
+\vspace{10mm}
+\centerline{in}
+
+\vspace{10mm}
+\centerline{\@field}
+\vspace{30mm}
+
+\centerline{Department of \@dept}
+\vspace{3mm}
+\centerline{University of Alberta}
+\vfill
+
+%\noindent
+%\begin{center}
+%\copyright Yanjun Ma,~\@year
+%\end{center}
+
+\begin{center}
+	\textcopyright~\@convocationdate~\@year
+\end{center}
+\newpage}
+	
+%
+%  Approval page without Field of Specialization
+%  Automatically set up the signing lines according to what is given
+%  in the \supervisor, \external and \examiners decalrations
+%  Place the \chair at the bottom. The chair does not sign
+%
+\def\approvalpage{
+\thispagestyle{empty}
+\begin{center}
+    \bf
+    University of Alberta\\[.3in]
+	Faculty of Graduate Studies and Research
+\end{center}
+\vfill
+
+\noindent
+The undersigned certify that they have read, and recommend to the
+Faculty of Graduate Studies and Research for acceptance, a thesis
+entitled {\bf \let\\=\null \@title} submitted by \@author\ in
+partial fulfillment of the requirements for the degree of
+{\bf \@degree} in {\em \@field}.
+\vfill
+
+%%%%%%%% Commented by Narendra Ravi: The following info need not
+%%%%%%%%                be put in the signature page.
+%%%%%%%%
+%%\hbox to \hsize{\hfill\hbox to 3in{\leaders\hbox to 1em{.\hss}\hfill}}
+%%\smallskip
+%%\hbox to \hsize{\hfill\hbox to 3in{{\@supervisor} (Supervisor)\hfill}}
+%%\bigskip
+%%\hbox to \hsize{\hfill\hbox to 3in{\leaders\hbox to 1em{.\hss}\hfill}}
+%%\smallskip
+%%%%\hbox to \hsize{\hfill\hbox to 3in{{\@external} (External)\hfill}}
+%%\hbox to \hsize{\hfill\hbox to 3in{{\@external}\hfill}}
+%%\bigskip
+\@for\@examer:=\@examiners\do{
+	\hbox to \hsize{\hfill\hbox to 3in{\leaders\hbox to 1em{.\hss}\hfill}}
+	\smallskip
+	\hbox to \hsize{\hfill\hbox to 3in{{\@examer}\hfill}}
+%%	\hbox to \hsize{\hfill\hbox to 3in{{\@examer} (Examiner)\hfill}}
+	\bigskip
+}
+%\bigskip
+%\hbox to \hsize{\hfill\hbox to 3in{{\@chair} (Chair)\hfill}}
+\vfill
+
+\noindent
+{\bf Date}: \hbox to 1.5in{\leaders\hbox to 1em{\hss.\hss}\hfill}
+\newpage}
+%
+%%%%%%%% Added by Narendra Ravi. Handles specialization degrees
+%%%%%%%%
+%%  Approval page with Field of Specialization
+%%  Automatically set up the signing lines according to what is given
+%%  in the \supervisor, \external and \examiners decalrations
+%%  Place the \chair at the bottom. The chair does not sign
+%%
+\def\approvalpageB{
+\thispagestyle{empty}
+\begin{center}
+    \bf
+    University of Alberta\\[.3in]
+	Faculty of Graduate Studies and Research
+\end{center}
+\vfill
+
+\noindent
+The undersigned certify that they have read, and recommend to the
+Faculty of Graduate Studies and Research for acceptance, a thesis
+entitled {\bf \let\\=\null \@title} submitted by \@author\ in
+partial fulfillment of the requirements for the degree of {\bf
+\@degree} in {\em \@field}.
+
+\vfill
+
+%%%%%%% Commented by Narendra Ravi: The following info need
+%%%%%                not be put in the signature page.
+%%%%%
+\hbox to \hsize{\hfill\hbox to 3in{\leaders\hbox to 1em{.\hss}\hfill}}
+\smallskip
+\hbox to \hsize{\hfill\hbox to 3in{{\@supervisor} (Supervisor)\hfill}}
+\bigskip
+\hbox to \hsize{\hfill\hbox to 3in{\leaders\hbox to 1em{.\hss}\hfill}}
+\smallskip
+%%\hbox to \hsize{\hfill\hbox to 3in{{\@external} (External)\hfill}}
+\hbox to \hsize{\hfill\hbox to 3in{{\@external}\hfill}}
+\bigskip
+\@for\@examer:=\@examiners\do{
+	\hbox to \hsize{\hfill\hbox to 3in{\leaders\hbox to 1em{.\hss}\hfill}}
+	\smallskip
+	\hbox to \hsize{\hfill\hbox to 3in{{\@examer}\hfill}}
+%%	\hbox to \hsize{\hfill\hbox to 3in{{\@examer} (Examiner)\hfill}}
+	\bigskip
+}
+%\bigskip
+%\hbox to \hsize{\hfill\hbox to 3in{{\@chair} (Chair)\hfill}}
+\vfill
+
+\noindent
+{\bf Date}: \hbox to 1.5in{\leaders\hbox to 1em{\hss.\hss}\hfill}
+\newpage}
+
+%
+%  Dedication, 1/3 down the page
+%
+
+\def\dedicationpage{
+	%\thispagestyle{empty}
+\vskip0pt plus.3fil
+\begin{center}
+     \@dedication
+\end{center}
+\vskip0pt plus.6fil
+\newpage}
+
+%
+% Abstract page, just using chapter*,
+%         generated using \begin{abstract}, \end{abstract}
+%
+%
+\def\abstract{\chapter*{Abstract}%\pagestyle{empty}\thispagestyle{empty}
+}
+\def\endabstract{\newpage}
+
+%
+% ditto Preface and Acknowledgements (optional)
+%
+\def\preface{\chapter*{Preface}%\pagestyle{empty}\thispagestyle{empty}
+}
+\def\endpreface{\newpage}
+
+\def\acknowledgements{\chapter*{Acknowledgements}%\pagestyle{empty}\thispagestyle{empty}
+}
+\def\endacknowledgements{\newpage}
+
+%
+% Table of contents, List Of Tables, List of Figures produced by
+% standard latex commands \tableofcontents, \listoffigures, \listoftables
+% Define enviorment for list of symbols, list of plates
+%
+\def\listofsymbols{\chapter*{List Of
+Symbols}%\pagestyle{empty}\thispagestyle{empty}
+}
+\def\endlistofsymbols{\newpage}
+\def\listofplates{\chapter*{List Of
+Plates}%\pagestyle{empty}\thispagestyle{empty}
+}
+\def\endlistofplates{\newpage}
+
+%%%%%%% Modified by Narendra Ravi.
+%%%%%%%    Generates different prefatory pages for degrees
+%%%%%%%    with specialization.
+%%%%%%%
+
+%\def\admin{\pagestyle{empty}
+%	\@releasepage \iffront\frontpage\else\relax\fi
+%      \iffield\titlepageB\approvalpageB\else\titlepage\approvalpage\fi
+%    \ifdedi\dedicationpage\else\relax\fi}
+
+\def\admin{%\pagestyle{empty}
+	%\frontpage
+      \titlepageB
+    \ifdedi\else\relax\fi}
+
+\def\bodyoftext{\newpage
+  \setcounter{page}{1}
+  \pagestyle{plain}
+  \pagenumbering{arabic}
+}
+
+%%%%%%% Added by Narendra Ravi.
+%%%%%%%    Using \baselineskip is better than using \baselinestretch
+%%%%%%%    as the stretch multiplies ALL interline distances.
+%%%%%%%
+\newcommand{\singlespacing}{\baselineskip 1em}
+\newcommand{\onehalfspacing}{\baselineskip 1.50em}
+\newcommand{\doublespacing}{\baselineskip 1.75em}
+\newcommand{\truedoublespacing}{\baselineskip 2em}
+\newcommand{\normalspacing}{\singlespacing}

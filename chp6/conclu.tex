@@ -1,0 +1,20 @@
+\chapter{Conclusions and Future Directions}
+
+\section{Conclusions}
+
+This study shows how to train a reinforcement learning agent using a model-free off-policy technique, specifically the Soft Actor-Critic algorithm, to produce a policy capable of performing low-level control of a simulated small-scaled helicopter. The use of this method for the same task has never been disclosed previously. The result of the SAC method is compared to an sliding mode controller, although the result was not superior, having in mind that the SAC method did not have access to the dynamics of the simulated helicopter, it provided a promising result in which the average steady state error was 0.05\% for the given [-1,-1,-1] case while the sliding mode controller provided an almost 0 error on the steady states. We also assessed the policy in an environment with the random wind as a disturbance to test the robustness of the method, and it is demonstrated that the SAC technique was capable of achieving stability in all trials. 
+
+\section{Future work}
+The comparison of the results in the previous section showed that there is still room for improvement in case if stability criteria of the achieved policy, one way to improve it is to work in more detail about the reward function of the policy, another procedure would be to improve the RL algorithms by modifications as the RL field is improving day by day. 
+Although it was demonstrated here that the small-sized helicopter could be stabilized using the SAC approach, trajectory tracking and recovery operations were not conducted in this study and can be addressed in future studies. In \cite{barros2020using}, similar study was conducted on a quadcopter.
+
+The ability to efficiently apply deep RL algorithms to the real world to address practical applications may be the most compelling motivator for future advances in the area.
+This study showed that RL is capable of controlling the helicopter; however, this has been done in the simulation environment, future studies could be focused on using such policies in real-world data. A review of similar approaches may be found in \cite{zhao2020sim}.
+
+There is a possibility of a relatively large gap between the simulation environment and the real-world data; a possible moderator would be to take advantage of a more sophisticated model such as the one for Yamaha R-50 helicopter \cite{la2003integrated,civita2006design} to improve the replication of the environment.
+
+
+
+
+
+

@@ -1,0 +1,669 @@
+
+
+\documentclass[12pt]{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[none,dcucite,abbr]{harvard}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{multirow}
+%\usepackage{setspace}
+\usepackage{epstopdf}
+\usepackage{uathesis}
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{subfigure}
+\usepackage[amsmath,amsthm,framed,thmmarks]{ntheorem}  
+\usepackage{algorithm,refcount}
+\usepackage{multirow}
+\usepackage{epsfig}
+\usepackage{pst-grad}
+\usepackage{pst-plot}
+\usepackage{mfirstuc}
+
+\usepackage{longtable}
+
+
+
+
+
+
+
+
+\usepackage{forest}
+
+\usepackage{slashbox}
+\usepackage{aircraftshapes}
+\usepackage{listings}
+\usepackage{listings} %For code in appendix
+\lstset
+{ %Formatting for code in appendix
+	language=Matlab,
+	basicstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=1,
+	breaklines=true,
+	breakatwhitespace=false,
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{frame=lines}
+\renewcommand{\lstlistingname}{Algorithm}
+\usepackage{cleveref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,fit}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\addto\captionsenglish{% Replace "english" with the language you use
+	\renewcommand{\contentsname}%
+	{TABLE OF CONTENTS}%
+	\renewcommand{\listfigurename}
+	{LIST OF FIGURES}
+	\renewcommand{\listtablename}
+	{LIST OF TABLES}
+}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows,positioning,chains}
+\tikzset{block/.style={draw, fill=blue!10, rectangle, 
+		minimum height=2em, minimum width=5em},
+	sum/.style={draw, fill=blue!20, circle, node distance=1cm},
+	input/.style={coordinate},
+	output/.style={coordinate},
+	pinstyle/.style={pin edge={Triangle[],thick,black}},
+	arrow/.style={draw,thick,-{Triangle[]}},
+	line/.style={draw,thick,-},
+	triangle/.style={draw,fill=red!20,regular polygon,regular polygon sides=3}}
+
+
+\usepackage{nomencl} %nomenclature
+\makenomenclature 
+\newcommand{\nomunit}[1]{%
+	\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+\newcommand\Nomenclature[2]{  \nomenclature[#2]{#1}{#2}}
+\renewcommand{\nomgroup}[1]{%
+	\ifthenelse{\equal{#1}{C}}{\item[\textbf{Symbols}]}{%
+		\ifthenelse{\equal{#1}{V}}{\item[\textbf{Acronyms}]}{%
+			\ifthenelse{\equal{#1}{A}}{\item[\textbf{Subscripts}]}{}}}
+}
+
+
+
+\usepackage{algorithmic}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\usepackage[acronym]{glossaries}
+% abbreviations:
+
+
+
+
+%%%% Load the package
+%%%\usepackage{glossaries}
+
+% Generate the glossary
+\makeglossaries
+
+
+%\usepackage{setspace}
+%\usepackage[noend]{algpseudocode}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\newtheorem{theorem}{Theorem}
+
+\newtheorem{acknowledgement}{Acknowledgement}
+\newtheorem{alg}{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lem}{Lemma}
+\newtheorem{thm}{Theorem}
+
+
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{rem}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{summary}{Summary}
+\newenvironment{pf}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+%\pagestyle{plain}
+\newcommand{\m}{\mathbb}
+\newcommand{\n}{}
+%\newcommand{\red}[1]{\textcolor{red}{#1}}
+\allowdisplaybreaks
+%% This bit allows you to either specify only the files which you wish to
+%% process, or `all' to process all files which you \include.
+%% Krishna Sethuraman (1990).
+
+%\typein [\files]{Enter file names to process, (chap1,chap2 ...), or `all' to process all files:}
+%\def\all{all}
+%\ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
+
+%%\makeglossaries
+%\makenoidxglossaries  
+%\printnoidxglossary[type=abbrev]
+
+
+
+
+\begin{document}
+\pagenumbering{roman}
+\include{cover}
+\include{contents}
+
+\nomenclature
+[C]{$ \mathbb{E}[X]$}{Expected value of a random variable X
+	\nomunit{$ $}}
+\nomenclature
+[C]{$I$}{Inertia coordinate
+	\nomunit{$ $}}
+\nomenclature
+[C]{$I_s$}{Equivalent moment of inertia tensor of the TPP rotor disk
+	\nomunit{$ $}}
+\nomenclature
+[C]{$B$}{Body coordinates
+	\nomunit{$ $}}
+\nomenclature
+[C]{$m$}{Helicopter mass 
+	\nomunit{$11.5\,[kg]$}}
+\nomenclature
+[C]{$\rho$}{Air density
+	\nomunit{$1.107\, [kg/m^3]$}} 
+\nomenclature
+[C]{$c_{mr}$}{Main rotor chord
+	\nomunit{$0.082\, [m]$}} 
+\nomenclature
+[C]{$c_{tr}$}{Tail rotor chord
+	\nomunit{$0.025\, [m]$}} 
+\nomenclature
+[C]{$R_{mr}$}{Main rotor radius
+	\nomunit{$0.95\, [m]$}} 
+\nomenclature
+[C]{$R_{tr}$}{Tail rotor radius
+	\nomunit{$0.15\, [m]$}} 
+\nomenclature
+[C]{$\Omega$}{Nominal main rotor speed
+	\nomunit{$115\, [rad/s]$}} 
+\nomenclature
+[C]{$n_{tr}$}{Gear ratio of tail rotor to main rotor
+	\nomunit{$6\, [-]$}} 
+\nomenclature
+[C]{$I_{xx}$}{Rolling moment of inertia
+	\nomunit{$0.3\, [kg.m^2]$}}
+\nomenclature
+[C]{$l$}{learning rate
+	\nomunit{$0.3\, [kg.m^2]$}}
+\nomenclature
+[C]{$I_{yy}$}{Pitching moment of inertia
+	\nomunit{$1.6\, [kg.m^2]$}}
+\nomenclature
+[C]{$I_{zz}$}{Yawing moment of inertia
+	\nomunit{$2.0\, [kg.m^2]$}}
+\nomenclature
+[C]{$z_{cg}$}{Main rotor hub height from CG
+	\nomunit{$-0.32\, [m]$}}
+\nomenclature
+[C]{$x_{fus}$}{Tail rotor hub offset from CG along x-axis
+	\nomunit{$-1.22\, [m]$}}
+\nomenclature
+[C]{$d$}{a boolean indicating wheter it is a terminal state or not 
+	\nomunit{$\, [-]$}}
+\nomenclature
+[C]{$\alpha_{1}$}{Stabilizer bar rate derivative
+	\nomunit{$53\, [-]$}}
+\nomenclature
+[C]{$\alpha_{2}$}{Stabilizer bar input derivative
+	\nomunit{$55\, [-]$}}
+\nomenclature
+[C]{$\alpha_{tail}$}{Slope of the tail servo angle to the PW of the signal
+	\nomunit{$-1698.5\, [rad/s]$}}
+\nomenclature
+[C]{$C_{L0}$}{Main rotor blade zero lift curve slope
+	\nomunit{$0.008\,[-]$}}
+\nomenclature
+[C]{$C_{L\alpha}$}{Main rotor blade lift curve slope
+	\nomunit{$5.49\,[rad^{-1}]$}}
+\nomenclature
+[C]{$C_{L\alpha_{tr}}$}{Tail rotor blade lift curve slope
+	\nomunit{$4.95\,[rad^{-1}]$}}
+\nomenclature
+[C]{$C_{D0}$}{ Main rotor blade zero lift drag coefficient
+	\nomunit{$0.01\,[-]$}}
+\nomenclature
+[C]{$C_{D0_{tr}}$}{ Tail rotor zero lift drag coefficient
+	\nomunit{$0.06\,[-]$}}
+\nomenclature
+[C]{$\delta_{0_{tail}}$}{Y-intercept of the tail servo angle to the PW of the signal
+	\nomunit{$1.4724\,[rad]$}}
+\nomenclature
+[C]{$K_{\beta}$}{Hub torsional stiffness
+	\nomunit{$255\,[N.m]$}}
+\nomenclature
+[C]{$K_{lon}$}{Longitudinal cyclic to longitudinal flap gain
+	\nomunit{$1\,[-]$}}
+\nomenclature
+[C]{$K_{lat}$}{Lateral cyclic to lateral flap gain
+	\nomunit{$0.98\,[-]$}}
+\nomenclature
+[C]{$\tau_{f}$}{Main rotor flapping time-constant
+	\nomunit{$0.04\,[s]$}}
+\nomenclature
+[C]{$\tau_{s}$}{Stabilizer bar flapping time-constant
+	\nomunit{$0.2\,[s]$}}
+\nomenclature
+[C]{$\theta_{0_{tail}}$}{Zero pitch angle of the tail blade
+	\nomunit{$0.1169\,[rad]$}}
+\nomenclature
+[C]{$b_v$}{Lateral translational velocity contributions to the flapping of the main rotor
+	\nomunit{$\,[rad/s]$}}
+\nomenclature
+[C]{$a_1$}{Coefficient of the first harmonic approximation in the Fourier series representation of the rotor flapping equations in x direction
+	\nomunit{$\,[rad/s]$}}
+\nomenclature
+[C]{$b_1$}{Coefficient of the first harmonic approximation in the Fourier series representation of the rotor flapping equations in y direction
+	\nomunit{$\,[rad/s]$}}
+\nomenclature
+[C]{$a_v$}{Longitudinal translational velocity contributions to the flapping of the main rotor
+	\nomunit{$\,[rad/s]$}}
+\nomenclature
+[C]{$A_{lon}$}{Longitudinal cyclic to flap gain at nominal rpm
+	\nomunit{$1\,[-]$}}
+\nomenclature
+[C]{$B_{lat}$}{Lateral cyclic to flap gain at nominal rpm 
+	\nomunit{$0.9875\,[-]$}}
+\nomenclature
+[C]{$A_b$}{Lateral flapping cross-coupling derivative
+	\nomunit{$-0.1\,[-]$}}
+\nomenclature
+[C]{$B_A$}{Longitudinal flapping cross-coupling derivative
+	\nomunit{$0.1\,[-]$}}
+\nomenclature
+[C]{$K_s$}{Longitudinal flapping cross-coupling derivative
+	\nomunit{$0.3\,[-]$}}
+\nomenclature
+[C]{$K_\lambda$}{Main rotor downwash factor at fuselage
+	\nomunit{$1\,[-]$}}
+\nomenclature
+[C]{$S_x^{fus}$}{Frontal fuselage area
+	\nomunit{$0.1\,[m^2]$}}
+\nomenclature
+[C]{$S_y^{fus}$}{Side fuselage area
+	\nomunit{$0.83\,[m^2]$}}
+\nomenclature
+[C]{$S_z^{fus}$}{Vertical fuselage area
+	\nomunit{$0.51\,[m^2]$}}
+\nomenclature
+[C]{$F$}{Vectors of external forces 
+	\nomunit{$\, [kg.m/s^2]$}}
+\nomenclature
+[C]{$M$}{Vectors of external moments 
+	\nomunit{$\, [kg.m^2/s^2]$}} 
+\nomenclature
+[C]{$u$}{Velocity component along x-axis of the CG in I rotated into B 
+	\nomunit{$\, [m/s] $}} 
+\nomenclature
+[C]{$v$}{Velocity component along y-axis of the CG in I rotated into B
+	\nomunit{$\, [m/s] $}} 
+\nomenclature
+[C]{$w$}{Velocity component along z-axis of the CG in I translated into B
+	\nomunit{$\, [m/s] $}} 
+\nomenclature
+[C]{$p$}{Angular rate component (pitch)along x-axis of the CG in I rotated into B 
+	\nomunit{$\, [rad/s] $}}
+\nomenclature
+[C]{$q$}{Angular rate component (roll) along y-axis of the CG in I rotated into B
+	\nomunit{$\, [rad/s] $}} 
+\nomenclature
+[C]{$r$}{Angular rate component (yaw) along z-axis of the CG in I rotated into B
+	\nomunit{$\, [rad/s] $}} 
+\nomenclature
+[C]{$S_h$}{Horizontal tail area
+	\nomunit{$\, [m^2] $}}
+\nomenclature
+[C]{$S_vt$}{Vertical tail area
+	\nomunit{$\, [m^2] $}}
+\nomenclature
+[C]{$u_{wind}$}{Wind velocity along x-axis of the CG in I rotated into B
+	\nomunit{$\, [m/s] $}}
+\nomenclature
+[C]{$v_{wind}$}{Wind velocity along y-axis of the CG in I rotated into B
+	\nomunit{$\, [m/s] $}}
+\nomenclature
+[C]{$w_{wind}$}{Wind velocity along z-axis of the CG in I rotated into B
+	\nomunit{$\, [m/s] $}}
+\nomenclature
+[C]{$u_r$}{Normalized air relative velocity comp along r-axis. in the main rotor rpn coord.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$u_p$}{Normalized air relative velocity comp along p-axis. in the main rotor rpn coord.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$u_n$}{Normalized air relative velocity comp along n-axis. in the main rotor rpn coord.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$u_{r_{tr}}$}{Normalized air relative velocity along r-axis in the tail rotor rpn coord.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$u_{p_{tr}}$}{Normalized air relative velocity along pr-axis in the tail rotor rpn coord.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$u_{n_{tr}}$}{Normalized air relative velocity along n-axis in the tail rotor rpn coord.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$V_{i}$}{Main rotor induced velocity
+	\nomunit{$\, [m/s] $}}
+
+\nomenclature
+[C]{$\eta$}{Sliding surface reach time factor
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\lambda$}{surface convergence rate factor
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$F_e$}{bound on f 
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$B_e$}{bound on b 
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$V_{i_{tr}}$}{tail rotor induced velocity
+	\nomunit{$\, [m/s] $}}
+\nomenclature
+[C]{$V_{h}$}{Main rotor induced velocity in hover
+	\nomunit{$\, [m/s] $}}
+\nomenclature
+[C]{$V_{h}$}{Main rotor induced velocity in hover
+	\nomunit{$\, [m/s] $}}
+\nomenclature
+[C]{$x, y, z$}{Position of CG in I coordinates 
+	\nomunit{$\, [m] $}}
+\nomenclature
+[C]{$x_{ht}$}{Horizontal tail offset from CG along x-axis
+	\nomunit{$\, [m] $}}
+\nomenclature
+[C]{$x_{vt}$}{Horizontal tail offset from CG along x-axis
+	\nomunit{$\, [m] $}}
+\nomenclature
+[C]{$z_{vt}$}{Vertical tail offset from CG along z-axis
+	\nomunit{$\, [m] $}}
+\nomenclature
+[C]{$z_{c}$}{Vertical displacement of the swashplate
+	\nomunit{$\, [m] $}}
+\nomenclature
+[C]{$\alpha_{tail}$}{Slope of the tail servo angle to the PW of the signal
+	\nomunit{$\, [rad/s] $}}
+\nomenclature
+[C]{$\delta_{coll}$}{Main rotor collective pitch input 
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\delta_{ped}$}{ Tail rotor blade pitch input
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\delta_{lon}$}{ Longitudinal cyclic pitch input
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\delta_{lat}$}{Lateral cyclic pitch input
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\delta_{x},\delta_{y}$}{ Euler rotation angles of the swashplate
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\gamma$}{ Discounted rate in RL.
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\mathcal{D}$}{ Buffer in RL.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\xi$}{ Ranodm number generated in a normal distribution.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$a_\sigma$}{ Standard deviation of action in a gaussian distribution.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$a_\mu$}{ Mean (expectation) of action in a gaussian distribution.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$a_\kappa$}{ Tunable parameter in policy search of RL.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$H$}{ Entropy of a stochastic policy.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$L$}{ Mean Squared Bellman Error MSBE.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\delta_{0_{tail}}$}{ Y-intercept of the tail servo angle to the PW of the signal
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\Theta_{mr}$}{ Pitch angle of the main rotor 
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\Theta_{tr}$}{ Pitch angle of the tail rotor
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\Theta_{0_{tail}}$}{ Zero pitch angle of the tail blade
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\lambda_{0}$}{ Main rotor inflow ratio 
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\mu$}{ Advance ratio
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\overline{\mu}$}{Normalized Advance ratio
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\mu_x$}{Non-dimensional airflow components  along x axis
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\mu_y$}{Non-dimensional airflow components  along y axis
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\mu_z$}{Non-dimensional airflow components  along z axis
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$P(x|y)$}{Probability of outcome x given condition y
+	\nomunit{$\, [-] $}}
+
+\nomenclature
+[C]{$\sigma_{mr}$}{Main rotor solidity factor
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\tau_{mr}$}{ Main rotor blade element radial distance ratio
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\tau_{tr}$}{ Tail rotor blade element radial distance ratio
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$v_{a}$}{ Axial inflow ratio
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\phi,\theta,\psi $}{Euler angles
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$\Psi$}{ Blade azimuth angle 
+	\nomunit{$\, [rad] $}}
+\nomenclature
+[C]{$R_b^I$}{ Linear velocity transformation matrices from the body to inertial
+	coordinates
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\Phi$}{Angular velocity transformation matrices from the body to inertial
+	coordinates
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$U$}{Vector of input [$\delta_{col},\delta_{lat},\delta_{lon},\delta_{ped}]^T$
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$\mathbb{V}$}{State value
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$a_t$}{Action of the agent in RL 
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$s_t$}{Observation of the environment in RL 
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$R_t$}{Reward of the environment in RL 
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$F_x$}{Force along x axis
+	\nomunit{$\, [kgm/s^2] $}}
+\nomenclature
+[C]{$G$}{Expected return of MDP process.
+	\nomunit{$\, [-] $}}
+\nomenclature
+[C]{$F_y$}{Force along y axis
+	\nomunit{$\, [kgm/s^2] $}}
+\nomenclature
+[C]{$F_z$}{Force along z axis
+	\nomunit{$\, [kgm/s^2] $}}
+\nomenclature
+[C]{$M_x$}{Moment along x axis
+	\nomunit{$\, [kgm^2/s^2] $}}
+\nomenclature
+[C]{$M_y$}{Moment along y axis
+	\nomunit{$\, [kgm^2/s^2] $}}
+\nomenclature
+[C]{$M_z$}{Moment along y axis
+	\nomunit{$\, [kgm^2/s^2] $}}
+\nomenclature
+[C]{$V_{fus}$}{ Dynamic pressure of the fuselage.
+	\nomunit{$\, [m/s] $}}
+\nomenclature
+[A]{$mr$}{Main rotor
+	\nomunit{$\, [-] $}}
+\nomenclature
+[A]{$tr$}{Tail rotor
+	\nomunit{$\, [-] $}}
+\nomenclature
+[A]{$fus$}{Fuselage
+	\nomunit{$\, [-] $}}
+\nomenclature
+[A]{$ht$}{Horizontal tail
+	\nomunit{$\, [-] $}}
+\nomenclature
+[A]{$vt$}{Vertical tail
+	\nomunit{$\, [-] $}}
+\nomenclature
+[A]{$cg$}{Center of gravity
+	\nomunit{$\, [-] $}}
+\nomenclature
+[A]{$d$}{Desired value for the variable
+	\nomunit{$\, [-] $}}
+\nomenclature
+[V]{$CG$}{Center of gravity
+	\nomunit{$[-] $}}
+\nomenclature
+[C]{$V_a$}{Normal-to-the-disk component of the free stream velocity normalized by $V_{h}$
+	\nomunit{$ [-]$}}
+\nomenclature
+[C]{$J$}{Jacobian matrix
+	\nomunit{$[-] $}}
+\nomenclature
+[C]{$K_u$}{Flapping due to the forward velocity factor
+	\nomunit{$[-] $}}
+\nomenclature
+[C]{$K_v$}{Flapping due to the sideway velocity factor
+	\nomunit{$[-] $}}
+\nomenclature
+[C]{$K_d$}{Lateral flapping due to the stabilizier bar factor
+	\nomunit{$[-] $}}
+\nomenclature
+[C]{$Q_{mr}$}{Drag torque of main rotor
+	\nomunit{$kg.m/s^2 $}}
+\nomenclature
+[C]{$T$}{Thrust
+	\nomunit{$kg.m/s^2 $}}
+\nomenclature
+[C]{$K_c$}{Longitudinal flapping due to the stabilizier bar factor
+	\nomunit{$[-] $}}
+\nomenclature
+[C]{$K_{\mu}$}{Scaling of flap response to speed variation
+	\nomunit{$[-] $}}
+\printnomenclature
+
+
+\pagestyle{plain}
+\bodyoftext
+%\chapter{Introduction}
+%Being edited
+%\chapter{Preliminaries}
+%Being edited
+\include{chp1/intro}
+\include{chp2/chaos}
+\include{chp3/biophysical}
+\include{chp4/computers}
+\include{chp6/conclu}
+\include{biblio}
+\appendix
+\renewcommand\thefigure{\Alph{section}S.\arabic{figure}}
+
+
+\include{chp5/chp5app}
+\include{appb}
+
+%\singlespacing
+%\bibliographystyle{plain}
+%\bibliography{biblio}
+\end{document}
+
